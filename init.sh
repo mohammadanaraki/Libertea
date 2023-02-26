@@ -249,6 +249,8 @@ echo "    - trojan-ws..."
 ./providers/trojan-ws/init.sh 2001 12001 "$CONN_TROJAN_WS_URL" "$CONN_TROJAN_WS_AUTH_PASSWORD"
 echo "    - vless-ws..."
 ./providers/vless-ws/init.sh 2002 12002 "$CONN_VLESS_WS_URL" "$CONN_VLESS_WS_AUTH_UUID"
+echo "    - vmess-ws..."
+./providers/vmess-ws/init.sh 2004 12004 "$CONN_VMESS_WS_URL" "$CONN_VMESS_WS_AUTH_UUID"
 echo "    - shadowsocks-v2ray..."
 ./providers/shadowsocks-v2ray/init.sh 2003 "$CONN_SHADOWSOCKS_V2RAY_URL" "$CONN_SHADOWSOCKS_V2RAY_AUTH_PASSWORD"
 
@@ -310,7 +312,7 @@ for container in $containers; do
         if [ $(( $(date +%s) - start_time )) -gt 45 ]; then
             echo "*******************************************************"
             echo "ERROR: Timeout while waiting for $container to start."
-            echo "       Please open an issue on https://github.com/VZiChoushaDui/Libertea/issues/new"
+            echo "       Please open an issue on https://github.com/mohammadanaraki/Libertea/issues/new"
             echo "       and include the following information:"
             echo "       - component name: $container"
             echo "       - OS: $(cat /etc/os-release | grep -E "^NAME=" | cut -d "=" -f 2)"
@@ -334,7 +336,7 @@ while [ "$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:1000/$PANEL_
     if [ $(( $(date +%s) - start_time )) -gt 45 ]; then
         echo "*******************************************************"
         echo "ERROR: Timeout while waiting for panel to start."
-        echo "       Please open an issue on https://github.com/VZiChoushaDui/Libertea/issues/new"
+        echo "       Please open an issue on https://github.com/mohammadanaraki/Libertea/issues/new"
         echo "       and include the following information:"
         echo "       - component name: libertea-panel"
         echo "       - OS: $(cat /etc/os-release | grep -E "^NAME=" | cut -d "=" -f 2)"
